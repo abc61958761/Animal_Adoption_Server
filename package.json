@@ -19,7 +19,7 @@
     "start:dev": "nodemon --watch .env --watch src --exec babel-node src --source-maps",
     "test": "cross-env NODE_ENV=test mocha --exit --recursive --require @babel/register test",
     "test:coverage": "cross-env NODE_ENV=test nyc --require @babel/register --reporter lcov --reporter text mocha --exit --recursive test",
-    "postinstall": "yarn && yarn prestart"
+    "postinstall": "yarn prestart"
   },
   "husky": {
     "hooks": {
@@ -63,6 +63,7 @@
     "mongoose": "^5.10.9",
     "morgan": "^1.10.0",
     "pg": "^8.3.0",
+    "rimraf": "^3.0.2",
     "serve-favicon": "^2.5.0",
     "swagger-jsdoc": "^3.2.9",
     "swagger-ui-dist": "^3.22.3",
@@ -87,7 +88,6 @@
     "nodemon": "^2.0.4",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
-    "rimraf": "^3.0.2",
     "supertest": "^4.0.2"
   },
   "engines": {
