@@ -1,16 +1,24 @@
+import db from '../db';
+
+const TABLE_NAME = 'users';
+
 /**
  * User model.
  */
-import mongoose from 'mongoose';
-
-const Schema = mongoose.Schema;
-
-const user = new Schema({
-  name: {
-    type: String
+class User extends db.Model {
+  /**
+   * Get table name.
+   */
+  get tableName() {
+    return TABLE_NAME;
   }
-});
 
-const Users = mongoose.model('User', user);
+  /**
+   * Table has timestamps.
+   */
+  get hasTimestamps() {
+    return true;
+  }
+}
 
-export default Users;
+export default User;
