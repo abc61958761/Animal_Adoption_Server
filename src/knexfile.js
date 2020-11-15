@@ -7,10 +7,8 @@ let connection = {
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  ssl: { rejectUnauthorized: false },
   charset: 'utf8',
-  timezone: 'UTC',
-  use_env_variable: 'DATABASE_URL'
+  timezone: 'UTC'
 };
 
 // For test environment
@@ -22,6 +20,14 @@ if (process.env.NODE_ENV === 'test') {
     user: process.env.TEST_DB_USER,
     password: process.env.TEST_DB_PASSWORD,
     database: process.env.TEST_DB_NAME
+  };
+}
+if (process.env.NODE_ENV === 'production') {
+  connection = {
+    ssl: { rejectUnauthorized: false },
+    DATABASE_URL: process.env.DATABASE_URL,
+    charset: 'utf8',
+    timezone: 'UTC'
   };
 }
 
