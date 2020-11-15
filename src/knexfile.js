@@ -29,10 +29,7 @@ logger.info(`DATABASE_URL: ${process.env.DATABASE_URL}`);
 
 if (process.env.NODE_ENV === 'production') {
   connection = {
-    ssl: { rejectUnauthorized: false },
-    DATABASE_URL: process.env.DATABASE_URL,
-    charset: 'utf8',
-    timezone: 'UTC'
+    ssl: { rejectUnauthorized: false }
   };
 }
 logger.info(`host : ${connection.host}`);
