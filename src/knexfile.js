@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'test') {
 module.exports = {
   connection,
   // client: process.env.DB_CLIENT,
-  clinet: 'pg',
+  client: 'pg',
   migrations: {
     tableName: 'migrations',
     directory: './migrations',
