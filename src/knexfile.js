@@ -1,3 +1,5 @@
+import logger from './utils/logger';
+
 require('dotenv').config({ path: __dirname + '/../.env' });
 
 // Default configuration for database connection
@@ -22,6 +24,9 @@ if (process.env.NODE_ENV === 'test') {
     database: process.env.TEST_DB_NAME
   };
 }
+logger.info(`NODE_ENV: ${process.env.NODE_ENV}`);
+logger.info(`DATABASE_URL: ${process.env.DATABASE_URL}`);
+
 if (process.env.NODE_ENV === 'production') {
   connection = {
     ssl: { rejectUnauthorized: false },
@@ -30,6 +35,8 @@ if (process.env.NODE_ENV === 'production') {
     timezone: 'UTC'
   };
 }
+logger.info(`host : ${connection.host}`);
+logger.info(`port : ${connection.port}`);
 
 /**
  * Database configuration.
