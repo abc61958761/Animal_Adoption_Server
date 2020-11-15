@@ -29,6 +29,7 @@ logger.info(`DATABASE_URL: ${process.env.DATABASE_URL}`);
 
 if (process.env.NODE_ENV === 'production') {
   connection = {
+    ...connection,
     ssl: { rejectUnauthorized: false }
   };
 }
