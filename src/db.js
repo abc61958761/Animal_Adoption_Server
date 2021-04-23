@@ -1,5 +1,5 @@
 import knexJs from 'knex';
-import bookshelf from 'bookshelf';
+import bookshelfJs from 'bookshelf';
 
 import knexConfig from './knexfile';
 
@@ -7,6 +7,10 @@ import knexConfig from './knexfile';
  * Database connection.
  */
 const knex = knexJs(knexConfig);
-const db = bookshelf(knex);
+const bookshelf = bookshelfJs(knex);
 
-export default db;
+bookshelf.plugin(require('bookshelf-uuid'), {
+  type: 'v4'
+});
+
+export { bookshelf, knex };
